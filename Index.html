@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jalal Elbarrak | Developer & Video Editor</title>
+    <style>
+        /* --- CSS VARIABLES & RESET --- */
+        :root {
+            --bg-color: #0f0f11;
+            --card-bg: #1a1a1e;
+            --text-main: #ffffff;
+            --text-secondary: #a1a1aa;
+            --accent-dev: #3b82f6; /* Blue for Dev */
+            --accent-video: #f43f5e; /* Red for Video */
+            --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: var(--font-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        ul { list-style: none; }
+
+        /* --- LAYOUT UTILITIES --- */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section { padding: 80px 0; }
+
+        /* --- HEADER / HERO --- */
+        header {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: radial-gradient(circle at center, #22222a 0%, #0f0f11 70%);
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            letter-spacing: -1px;
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+        }
+
+        .hero-content .highlight {
+            font-weight: bold;
+        }
+        
+        .highlight.dev { color: var(--accent-dev); }
+        .highlight.vid { color: var(--accent-video); }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 5px;
+            background: #fff;
+            color: #000;
+            font-weight: bold;
+            margin: 0 10px;
+        }
+
+        .btn:hover { transform: translateY(-3px); }
+
+        /* --- WORK SECTIONS --- */
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+        }
+
+        .section-title span { border-bottom: 3px solid var(--text-secondary); }
+
+        /* GRID LAYOUT */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        /* CARDS */
+        .card {
+            background: var(--card-bg);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: 0.3s;
+            border: 1px solid #333;
+        }
+
+        .card:hover { transform: translateY(-5px); border-color: #555; }
+
+        .card-img {
+            height: 200px;
+            background-color: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+        }
+
+        .card-content { padding: 20px; }
+        .card-content h3 { margin-bottom: 10px; }
+        .card-content p { color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 15px; }
+
+        .tag {
+            display: inline-block;
+            font-size: 0.8rem;
+            padding: 4px 8px;
+            border-radius: 4px;
+            margin-right: 5px;
+            background: #333;
+        }
+
+        /* --- SKILLS --- */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        @media(max-width: 768px) {
+            .skills-grid { grid-template-columns: 1fr; }
+            .hero-content h1 { font-size: 2.5rem; }
+        }
+
+        .skill-category h3 {
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .skill-bar {
+            background: #333;
+            height: 8px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .skill-fill {
+            height: 100%;
+            border-radius: 4px;
+            width: 0%; /* Animate this in JS if desired, static for now */
+        }
+
+        .skill-label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+        }
+
+        /* --- CONTACT & FOOTER --- */
+        footer {
+            background: var(--card-bg);
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1px solid #333;
+        }
+        
+        .social-links { margin-bottom: 20px; }
+        .social-links a { margin: 0 10px; color: var(--text-secondary); font-size: 1.2rem; }
+        .social-links a:hover { color: #fff; }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="hero-content">
+            <h1>Hello, I'm Jalal Elbarrak.</h1>
+            <p>I build logic & design stories.</p>
+            <p>
+                <span class="highlight dev">&lt; Developer /&gt;</span> 
+                &nbsp;|&nbsp; 
+                <span class="highlight vid">Video Editor &#9658;</span>
+            </p>
+            <div style="margin-top: 30px;">
+                <a href="#projects-dev" class="btn">View Code</a>
+                <a href="#projects-video" class="btn" style="background:transparent; color:#fff; border:1px solid #fff;">View Edits</a>
+            </div>
+        </div>
+    </header>
+
+    <section id="projects-dev">
+        <div class="container">
+            <h2 class="section-title"><span style="border-color: var(--accent-dev);">Development Work</span></h2>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-img">Code Preview Image</div> <div class="card-content">
+                        <h3>Personal Portfolio</h3>
+                        <p>A responsive website built with HTML5 and CSS3 to showcase skills.</p>
+                        <span class="tag">HTML</span> <span class="tag">CSS</span> <span class="tag">Git</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-img">App Interface Image</div> 
+                    <div class="card-content">
+                        <h3>Task Manager App</h3>
+                        <p>A simple JavaScript application to manage daily tasks and productivity.</p>
+                        <span class="tag">JavaScript</span> <span class="tag">UI Design</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-img">API Dashboard Image</div> 
+                    <div class="card-content">
+                        <h3>Weather Dashboard</h3>
+                        <p>Fetching data from a public API to display real-time weather stats.</p>
+                        <span class="tag">API</span> <span class="tag">Frontend</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects-video" style="background-color: #131316;">
+        <div class="container">
+            <h2 class="section-title"><span style="border-color: var(--accent-video);">Video Edits</span></h2>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-img" style="background: #222;">
+                        <span style="font-size:2rem; color:var(--accent-video);">&#9658;</span>
+                    </div> 
+                    <div class="card-content">
+                        <h3>Cinematic Travel Vlog</h3>
+                        <p>Color grading and fast-paced cutting for a travel vlogger.</p>
+                        <span class="tag">Premiere Pro</span> <span class="tag">Sound Design</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-img" style="background: #222;">
+                        <span style="font-size:2rem; color:var(--accent-video);">&#9658;</span>
+                    </div>
+                    <div class="card-content">
+                        <h3>Commercial Promo</h3>
+                        <p>Motion graphics and dynamic transitions for a product launch.</p>
+                        <span class="tag">After Effects</span> <span class="tag">Commercial</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="container">
+            <h2 class="section-title"><span>Technical Toolbox</span></h2>
+            <div class="skills-grid">
+                
+                <div class="skill-category">
+                    <h3 style="color: var(--accent-dev);">Development</h3>
+                    
+                    <div class="skill-label"><span>HTML & CSS</span> <span>90%</span></div>
+                    <div class="skill-bar"><div class="skill-fill" style="width:90%; background:var(--accent-dev);"></div></div>
+
+                    <div class="skill-label"><span>JavaScript</span> <span>75%</span></div>
+                    <div class="skill-bar"><div class="skill-fill" style="width:75%; background:var(--accent-dev);"></div></div>
+
+                    <div class="skill-label"><span>Git/GitHub</span> <span>80%</span></div>
+                    <div class="skill-bar"><div class="skill-fill" style="width:80%; background:var(--accent-dev);"></div></div>
+                </div>
+
+                <div class="skill-category">
+                    <h3 style="color: var(--accent-video);">Video Editing</h3>
+                    
+                    <div class="skill-label"><span>Adobe Premiere Pro</span> <span>95%</span></div>
+                    <div class="skill-bar"><div class="skill-fill" style="width:95%; background:var(--accent-video);"></div></div>
+
+                    <div class="skill-label"><span>After Effects</span> <span>70%</span></div>
+                    <div class="skill-bar"><div class="skill-fill" style="width:70%; background:var(--accent-video);"></div></div>
+
+                    <div class="skill-label"><span>Color Grading</span> <span>85%</span></div>
+                    <div class="skill-bar"><div class="skill-fill" style="width:85%; background:var(--accent-video);"></div></div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <h2>Let's Create Something.</h2>
+            <p style="color:var(--text-secondary); margin: 10px 0 30px;">Open for freelance opportunities.</p>
+            
+            <div class="social-links">
+                <a href="#">GitHub</a>
+                <a href="#">LinkedIn</a>
+                <a href="#">YouTube</a>
+                <a href="mailto:jalal@example.com">Email Me</a>
+            </div>
+            
+            <p style="font-size: 0.8rem; color: #555;">&copy; 2024 Jalal Elbarrak. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
