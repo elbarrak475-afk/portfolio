@@ -1,0 +1,190 @@
+/* --- CSS VARIABLES & RESET --- */
+:root {
+    --bg-color: #0f0f11;
+    --card-bg: #1a1a1e;
+    --text-main: #ffffff;
+    --text-secondary: #a1a1aa;
+    --accent-dev: #3b82f6; /* Blue for Dev */
+    --accent-video: #f43f5e; /* Red for Video */
+    --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    font-family: var(--font-main);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+a { text-decoration: none; color: inherit; transition: 0.3s; }
+ul { list-style: none; }
+
+/* --- LAYOUT UTILITIES --- */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+section { padding: 80px 0; }
+
+/* --- HEADER / HERO --- */
+header {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: radial-gradient(circle at center, #22222a 0%, #0f0f11 70%);
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 10px;
+    letter-spacing: -1px;
+}
+
+.hero-content p {
+    font-size: 1.5rem;
+    color: var(--text-secondary);
+    margin-bottom: 30px;
+}
+
+.highlight { font-weight: bold; }
+.highlight.dev { color: var(--accent-dev); }
+.highlight.vid { color: var(--accent-video); }
+
+.hero-buttons { margin-top: 30px; }
+
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    border-radius: 5px;
+    background: #fff;
+    color: #000;
+    font-weight: bold;
+    margin: 0 10px;
+}
+
+.btn-outline {
+    background: transparent; 
+    color: #fff; 
+    border: 1px solid #fff;
+}
+
+.btn:hover { transform: translateY(-3px); }
+
+/* --- WORK SECTIONS --- */
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+}
+
+.section-title span { border-bottom: 3px solid var(--text-secondary); }
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+/* CARDS */
+.card {
+    background: var(--card-bg);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: 0.3s;
+    border: 1px solid #333;
+}
+
+.card:hover { transform: translateY(-5px); border-color: #555; }
+
+.card-img {
+    height: 200px;
+    background-color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666;
+}
+
+.video-section { background-color: #131316; }
+.video-placeholder { background: #222; }
+.play-icon { font-size: 2rem; color: var(--accent-video); }
+
+.card-content { padding: 20px; }
+.card-content h3 { margin-bottom: 10px; }
+.card-content p { color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 15px; }
+
+.tag {
+    display: inline-block;
+    font-size: 0.8rem;
+    padding: 4px 8px;
+    border-radius: 4px;
+    margin-right: 5px;
+    background: #333;
+}
+
+/* --- SKILLS --- */
+.skills-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+.skill-category h3 {
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.skill-bar {
+    background: #333;
+    height: 8px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.skill-fill {
+    height: 100%;
+    border-radius: 4px;
+    width: 0%; 
+}
+
+.skill-label {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+}
+
+/* --- RESPONSIVE MEDIA QUERIES --- */
+@media(max-width: 768px) {
+    .skills-grid { grid-template-columns: 1fr; }
+    .hero-content h1 { font-size: 2.5rem; }
+    .hero-content p { font-size: 1.2rem; }
+    .btn { display: block; margin: 10px auto; width: 80%; }
+}
+
+/* --- FOOTER --- */
+footer {
+    background: var(--card-bg);
+    padding: 40px 0;
+    text-align: center;
+    border-top: 1px solid #333;
+}
+
+.footer-subtitle { color: var(--text-secondary); margin: 10px 0 30px; }
+
+.social-links { margin-bottom: 20px; }
+.social-links a { margin: 0 10px; color: var(--text-secondary); font-size: 1.2rem; }
+.social-links a:hover { color: #fff; }
+
+.copyright { font-size: 0.8rem; color: #555; }
